@@ -1,25 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { Fragment } from "react";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component{
+
+  state = {
+    
+    nome : ""
+    
+  }
+  
+modificarNome = (event) => {
+  this.setState({
+    nome: event.target.value
+  })
+}
+
+componentDidMount(){
+  console.log('Executou o DidMount')
+}
+
+  render(){
+    console.log('Executou o render')
+    return (
+      <Fragment>
+        <input className="text-centralizado" type="text" value={this.state.nome} onChange={this.modificarNome}/>
+        <h1>Hello {this.state.nome}</h1>
+        <h2>idade = {this.props.idade}</h2>
+      </Fragment>
+                
+      
+      
+      
+    )
+  }
 }
 
 export default App;
